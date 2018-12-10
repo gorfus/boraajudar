@@ -1,27 +1,41 @@
+// aasd
+// parou nos 48 minutos do video do projeto BoraAjudar da Aula 2
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+//Navegação
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+
+//componentes
+import Header from './Header'
+import Footer from './Footer'
+import Home from './Home'
+import Sobre from './Sobre'
+import HomeCampanhas  from './HomeCampanhas'
+import Contato from './Contato'
+import Admin from './Admin'
+import Login from './Login'
+
+import base from './base'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Router>
+        <div className=''>
+          <Header />
+          <Route exact path='/' component={Home} />
+          <Route  path='/sobre' component={Sobre} />
+          <Route  path='/homecampanhas' component={HomeCampanhas} />
+          <Route  path='/contato' component={Contato} />
+          <Route  path='/admin' component={Admin} />
+          <Route path='/login' component={Login} />
+          <Footer />
+        </div>
+      </Router>
+    )
   }
 }
 
