@@ -21,7 +21,7 @@ const Header = props => {
                         <ul className='navbar-nav mx-auto'>
                             <li className='nav-item active px-lg-4'>
                                 <Link className='nav-link text-uppercase text-expanded' to='/'>
-                                    Início
+                                    Home
                                 </Link>
                             </li>
                             <li className='nav-item px-lg-4'>
@@ -30,7 +30,7 @@ const Header = props => {
                                 </Link>
                             </li>
                             <li className='nav-item px-lg-4'>
-                                <Link className='nav-link text-uppercase text-expanded' to='/campanha'>
+                                <Link className='nav-link text-uppercase text-expanded' to='/campanhas'>
                                     Campanhas
                                 </Link>
                             </li>
@@ -38,6 +38,11 @@ const Header = props => {
                                 <Link className='nav-link text-uppercase text-expanded' to='/contato'>
                                     Contato
                                 </Link>
+                            </li>
+                            <li className='nav-item px-lg-4'>
+                                <Link className='nav-link text-uppercase text-expanded' to='/login'>
+                                    Login
+                            </Link>
                             </li>
                         </ul>
                     </div>

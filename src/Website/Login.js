@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { auth } from './base'
+import { auth } from '../Data/base'
 
 class Login extends Component {
     constructor(props) {
@@ -28,12 +28,9 @@ class Login extends Component {
 
         let _email = this.email.value;
         let _passwd = this.passwd.value;
-        console.log('login', this.email.value, this.passwd.value)
 
         auth.signInWithEmailAndPassword(_email, _passwd)
             .then((user) => {
-                console.log(user)
-
                 this.setState({
                     isLogged: true,
                     isLogging: false,
@@ -42,8 +39,6 @@ class Login extends Component {
                 })
             })
             .catch((err) => {
-                console.log(err)
-
                 this.setState({
                     isLogged: false,
                     isLogging: false,
@@ -55,15 +50,21 @@ class Login extends Component {
 
     render() {
         if (this.state.isLogged) {
-            return <Redirect to="/admin" />
+            return <Redirect to="/AdminHome" />
         }
         else {
             return (
-                <div>
-                    <input type="email" ref={ref => this.email = ref}></input>
-                    <input type="passwd" ref={ref => this.passwd = ref}></input>
-                    {this.state.err && <p>email ou senha inválidos</p>}
-                    <button disabled={this.state.isLoggedIn} onClick={this.handleLogin} >Entrar</button>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="card">
+                                <input type="email" className="form-control" ref={ref => this.email = ref}></input>
+                                <input type="passwd" className="form-control" ref={ref => this.passwd = ref}></input>
+                                {this.state.err && <div className="alert alert-warning">email ou senha inválidos</div>}
+                                <button disabled={this.state.isLoggedIn} onClick={this.handleLogin} >Entrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )
         }

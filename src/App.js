@@ -1,37 +1,47 @@
-// aasd
 // parou nos 48 minutos do video do projeto BoraAjudar da Aula 2
 
+//módulos
 import React, { Component } from 'react';
+
 //Navegação
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
-//componentes
-import Header from './Header'
-import Footer from './Footer'
-import Home from './Home'
-import Sobre from './Sobre'
-import HomeCampanhas  from './HomeCampanhas'
-import Contato from './Contato'
-import Admin from './Admin'
-import Login from './Login'
+//componentes WebSite
+import Header from './Website/Header'
+import Home from './Website/Home'
+import Sobre from './Website/Sobre'
+import WebsiteCampanhas from './Website/Campanhas'
+import Contato from './Website/Contato'
+import Login from './Website/Login'
+import Footer from './Website/Footer'
 
-import base from './base'
+//componentes Admin
+import AdminHome from './Admin/Home'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      "campanhas": {},
+      "user": null
+    }
+  }
+
   render() {
     return (
       <Router>
-        <div className=''>
+        <div>
           <Header />
           <Route exact path='/' component={Home} />
-          <Route  path='/sobre' component={Sobre} />
-          <Route  path='/homecampanhas' component={HomeCampanhas} />
-          <Route  path='/contato' component={Contato} />
-          <Route  path='/admin' component={Admin} />
-          <Route path='/login' component={Login} />
+          <Route exact path='/sobre' component={Sobre} />
+          <Route exact path='/contato' component={Contato} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/campanhas' component={WebsiteCampanhas} />
+          <Route exact path='/adminHome' component={AdminHome} />
           <Footer />
         </div>
       </Router>
